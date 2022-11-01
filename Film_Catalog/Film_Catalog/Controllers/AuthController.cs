@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Film_Catalog.Models;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,13 +9,13 @@ namespace Film_Catalog.Controllers
     public class AuthController : ControllerBase
     {
         [HttpPost("register")]
-        public void PostRegister()
+        public void PostRegister(UserRegisterModel model)
         {
-
+            
         }
 
         [HttpPost("login")]
-        public void PostLogin()
+        public void PostLogin(LoginCredentials model)
         {
 
         }

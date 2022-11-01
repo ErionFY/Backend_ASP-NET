@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Film_Catalog.Models;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,15 +9,15 @@ namespace Film_Catalog.Controllers
     public class MovieController : ControllerBase
     {
         [HttpGet("{page}")]
-        public void GetPage(Int32 page)
+        public MoviesPagedListModel GetPage(Int32 page=1)
         {
-
+            return null;
         }
 
         [HttpGet("details/{id}")]
-        public void GetDetails(Guid id)
+        public MovieDetailsModel GetDetails(Guid id)
         {
-
+            return null;
         }
     }
 }

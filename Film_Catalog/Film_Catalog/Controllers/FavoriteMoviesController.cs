@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Film_Catalog.Models;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,7 +9,9 @@ namespace Film_Catalog.Controllers
     public class FavoriteMoviesController : ControllerBase
     {
         [HttpGet]
-        public void GetFavorites() { }
+        public MoviesListModel GetFavorites() {
+            return null;
+        }
 
         [HttpPost("/{id}/add")]
         public void AddFavorites(Guid id) { }

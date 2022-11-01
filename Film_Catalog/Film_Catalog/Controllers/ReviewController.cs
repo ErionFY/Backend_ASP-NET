@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Film_Catalog.Models;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,10 +9,10 @@ namespace Film_Catalog.Controllers
     public class ReviewController : ControllerBase
     {
         [HttpPost("add")]
-        public void AddReview() { }
+        public void AddReview(ReviewModifyModel model,Guid movieId) { }
         [HttpPut("{id}/edit")]
-        public void EditReview(Guid id) { }
+        public void EditReview(Guid movieId,Guid id,ReviewModifyModel model) { }
         [HttpDelete("{id}/delete")]
-        public void DeleteReview(Guid id) { }
+        public void DeleteReview(Guid movieId,Guid id ) { }
     }
 }

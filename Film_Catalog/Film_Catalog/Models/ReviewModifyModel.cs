@@ -4,6 +4,7 @@ namespace Film_Catalog.Models
 {
     public class ReviewModifyModel
     {
+        [Required]
         public string reviewText { get; set; }
         [Range(0, 10)]
         public Int32 rating { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Film_Catalog.Models;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,8 +9,8 @@ namespace Film_Catalog.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        public void GetProfile() { }
+        public ProfileModel GetProfile() { return null; }
         [HttpPut]
-        public void PutProfile() { }
+        public void PutProfile(ProfileModel model) { }
     }
 }
