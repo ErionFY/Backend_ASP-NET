@@ -11,7 +11,9 @@ namespace Film_Catalog.Controllers
         [HttpPost("register")]
         public void PostRegister(UserRegisterModel model)
         {
-            
+            //userName - Unique
+            //Email - Unique
+            //если birthdate не задан - задефолтить
         }
 
         [HttpPost("login")]

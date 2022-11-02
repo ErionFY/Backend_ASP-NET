@@ -34,3 +34,10 @@ D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\ob
 D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\obj\Debug\net6.0\Film_Catalog.genruntimeconfig.cache
 D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\obj\Debug\net6.0\ref\Film_Catalog.dll
 D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\HITS\2\Back\webNET-Hits-backend-aspnet-project-1\Film_Catalog\Film_Catalog\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
