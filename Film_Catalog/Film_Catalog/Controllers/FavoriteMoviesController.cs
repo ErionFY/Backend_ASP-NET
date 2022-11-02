@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Film_Catalog.Models;
+using Film_Catalog.Models.DTO;
 
 namespace Film_Catalog.Controllers
 {

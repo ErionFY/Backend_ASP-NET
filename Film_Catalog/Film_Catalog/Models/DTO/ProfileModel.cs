@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Film_Catalog.Models
+namespace Film_Catalog.Models.DTO
 {
     public class ProfileModel
     {

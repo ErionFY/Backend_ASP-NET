@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Film_Catalog.Models
+namespace Film_Catalog.Models.DTO
 {
     public class UserRegisterModel
     {
@@ -14,6 +14,6 @@ namespace Film_Catalog.Models
         public string email { get; set; }
         public DateTime? birthDate { get; set; }
         public Gender? gender { get; set; }
-           
+
     }
 }

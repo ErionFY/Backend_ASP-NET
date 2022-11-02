@@ -1,4 +1,4 @@
-﻿namespace Film_Catalog.Models
+﻿namespace Film_Catalog.Models.DTO
 {
     public class MoviesListModel
     {
