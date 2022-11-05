@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Film_Catalog.Models.DBClasses
 {
@@ -13,10 +14,10 @@ namespace Film_Catalog.Models.DBClasses
         public string Email { get; set; }//Unique
         [Url]
         public string? AvatarLink { get; set; }
-        public DataType BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         [Range(0, 1)]
         public Int32? Gender { get; set; }
-        
+        public bool IsAdmin { get; set; }
         //###############
         //#Relationships#
         //###############

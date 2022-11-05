@@ -131,8 +131,8 @@ namespace Film_Catalog.Migrations
                     b.Property<string>("AvatarLink")
                         .HasColumnType("text");
 
-                    b.Property<int>("BirthDate")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -140,6 +140,9 @@ namespace Film_Catalog.Migrations
 
                     b.Property<int?>("Gender")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()

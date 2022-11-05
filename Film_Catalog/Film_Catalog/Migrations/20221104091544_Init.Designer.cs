@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Film_Catalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221102181115_Init")]
+    [Migration("20221104091544_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,8 +133,8 @@ namespace Film_Catalog.Migrations
                     b.Property<string>("AvatarLink")
                         .HasColumnType("text");
 
-                    b.Property<int>("BirthDate")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -142,6 +142,9 @@ namespace Film_Catalog.Migrations
 
                     b.Property<int?>("Gender")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()

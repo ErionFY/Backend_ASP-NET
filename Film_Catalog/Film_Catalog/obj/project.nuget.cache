@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5MW/C+n4r1PbYggovAO7fdWBGDWsDZ28p90N4yh0fDDqrKD0wNgBdEnGCGHfj0hjHuqYEiO9usbos+iCheTrVA==",
+  "dgSpecHash": "64M/02ASm199btNBJiSQLJa8S6OdcqtYpYk7XNz8jO8vIiCdgZ5sC+tPVq1tg//Lw1OLFh21XgJ/ZWQaXbs/Rw==",
   "success": true,
   "projectFilePath": "D:\\HITS\\2\\Back\\webNET-Hits-backend-aspnet-project-1\\Film_Catalog\\Film_Catalog\\Film_Catalog.csproj",
   "expectedPackageFiles": [
@@ -39,7 +39,19 @@
     "C:\\Users\\gonch\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\gonch\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
     "C:\\Users\\gonch\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\gonch\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\gonch\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\gonch\\.nuget\\packages\\system.web.helpers.crypto\\3.2.3\\system.web.helpers.crypto.3.2.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"System.Web.Helpers.Crypto 3.2.3\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "System.Web.Helpers.Crypto",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
