@@ -24,7 +24,7 @@ namespace Film_Catalog.Controllers
         [Authorize]
         public ActionResult<ProfileModel> GetProfile() {
             if(!_UserService.IsAllowedJwtToken(Request.Headers.Authorization)){
-                return StatusCode(401," Invalid Token");
+                return StatusCode(401,"Invalid Token");
             }
             return _UserService.ProfileOfUser(User.Identity.Name);
             
@@ -35,7 +35,7 @@ namespace Film_Catalog.Controllers
         public ActionResult PutProfile(ProfileModel model) {
             if (!_UserService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, " Invalid Token");
+                return StatusCode(401, "Invalid Token");
             }
             if (!ModelState.IsValid)
             {

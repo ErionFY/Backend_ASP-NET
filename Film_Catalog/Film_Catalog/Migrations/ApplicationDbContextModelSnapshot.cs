@@ -29,6 +29,7 @@ namespace Film_Catalog.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Genre_Id");

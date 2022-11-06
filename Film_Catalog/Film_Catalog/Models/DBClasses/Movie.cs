@@ -24,6 +24,6 @@ namespace Film_Catalog.Models.DBClasses
         //###############
         public ICollection<User> Users { get; set; }
         public ICollection<Genre> Genres { get; set; }
-       public ICollection<Review> Reviews { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }

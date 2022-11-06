@@ -12,9 +12,7 @@ namespace Film_Catalog.Models.DBClasses
         public string? ReviewText { get; set; }
         public bool IsAnonymous { get; set; }
         public DateTime CreateDateTime { get; set; }
-    //   [ForeignKey("Id")]
-        public Movie Movie { get; set; }
-     //  [ForeignKey("Id")]
+        public Movie Movie { get; set; }    
         public User Author { get; set; }
     }
 }

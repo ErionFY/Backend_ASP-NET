@@ -92,10 +92,17 @@ namespace Film_Catalog.Controllers
         {
             if (!_AuthService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, " Invalid Token");
+                return StatusCode(401, "Invalid Token");
             }
+            try 
+            { 
             _AuthService.LogOutJWT(Request.Headers.Authorization);
             return Ok();
+             }
+            catch(Exception e)
+            {
+                return StatusCode(500);
+            }
         }
 
     }

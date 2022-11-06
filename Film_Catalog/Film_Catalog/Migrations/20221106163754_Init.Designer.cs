@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Film_Catalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221105123738_Init")]
+    [Migration("20221106163754_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,7 @@ namespace Film_Catalog.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Genre_Id");

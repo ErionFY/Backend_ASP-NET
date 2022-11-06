@@ -14,7 +14,7 @@ namespace Film_Catalog.Migrations
                 columns: table => new
                 {
                     Genre_Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true)
+                    Name = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
