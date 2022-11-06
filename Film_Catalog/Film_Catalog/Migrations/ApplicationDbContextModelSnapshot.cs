@@ -39,8 +39,9 @@ namespace Film_Catalog.Migrations
             modelBuilder.Entity("Film_Catalog.Models.DBClasses.JwtLoggedOutToken", b =>
                 {
                     b.Property<string>("Token")
-                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.HasKey("Token");
 
                     b.ToTable("JwtLoggedOutTokens");
                 });

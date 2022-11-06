@@ -24,15 +24,29 @@ namespace Film_Catalog.Controllers
         [Authorize]
         public ActionResult<ProfileModel> GetProfile() {
             if(!_UserService.IsAllowedJwtToken(Request.Headers.Authorization)){
-                return StatusCode(401," Please ReLogin");
+                return StatusCode(401," Invalid Token");
             }
             return _UserService.ProfileOfUser(User.Identity.Name);
             
         }
+
         [HttpPut]
         [Authorize]
-        public void PutProfile(ProfileModel model) {
-        
+        public ActionResult PutProfile(ProfileModel model) {
+            if (!_UserService.IsAllowedJwtToken(Request.Headers.Authorization))
+            {
+                return StatusCode(401, " Invalid Token");
+            }
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(401, "Model is incorrect");
+            }
+            if(!_UserService.IsEmailFree(model))
+            {
+                return StatusCode(400, "This Email is already taken");
+            }
+            _UserService.ChangeUserInfo(model);
+            return Ok();
         }
     }
 }

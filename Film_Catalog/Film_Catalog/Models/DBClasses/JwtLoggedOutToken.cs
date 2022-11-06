@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Film_Catalog.Models.DBClasses
 {
-    [Keyless]
     public class JwtLoggedOutToken
     {
+        [Key]
         public string Token { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Film_Catalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221104091544_Init")]
+    [Migration("20221105123738_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,9 @@ namespace Film_Catalog.Migrations
             modelBuilder.Entity("Film_Catalog.Models.DBClasses.JwtLoggedOutToken", b =>
                 {
                     b.Property<string>("Token")
-                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.HasKey("Token");
 
                     b.ToTable("JwtLoggedOutTokens");
                 });

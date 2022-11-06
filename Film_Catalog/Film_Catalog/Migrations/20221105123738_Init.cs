@@ -29,6 +29,7 @@ namespace Film_Catalog.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_JwtLoggedOutTokens", x => x.Token);
                 });
 
             migrationBuilder.CreateTable(

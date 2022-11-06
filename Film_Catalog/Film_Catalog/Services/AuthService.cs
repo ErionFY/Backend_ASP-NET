@@ -61,7 +61,7 @@ namespace Film_Catalog.Services
             var claims = new List<Claim>
         {
             new Claim(ClaimsIdentity.DefaultNameClaimType, user.User_Id.ToString()),
-            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.UserName.ToString())
+            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.IsAdmin.ToString())
 
         };
 
@@ -70,13 +70,19 @@ namespace Film_Catalog.Services
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             return claimsIdentity;
         }
-        public async void LogOutJWT(string JwtUserToken)
+        public bool IsAllowedJwtToken(string JwtUserToken)
         {
+            JwtUserToken = JwtUserToken.Substring(7, JwtUserToken.Length - 7);
+            return !(_context.JwtLoggedOutTokens.Any(x => x.Token.Equals(JwtUserToken)));
+        }
+        public async Task LogOutJWT(string JwtUserToken)
+        {
+            JwtUserToken = JwtUserToken.Substring(7, JwtUserToken.Length-7);
             await _context.JwtLoggedOutTokens.AddAsync(new JwtLoggedOutToken
             {
                 Token = JwtUserToken
             }
-            );
+            ) ;
             await _context.SaveChangesAsync();
             
         }

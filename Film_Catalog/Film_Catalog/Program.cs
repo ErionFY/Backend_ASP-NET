@@ -46,6 +46,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+
+
 //builder.Services.AddScoped<IApplicationBuilder, ApplicationBuilder>();-для каждого запроса создаётся свой объект сервиса
 //builder.Services.AddSingleton<IApplicationBuilder, ApplicationBuilder>();-создаёт только один объект сервиса и живёт в рамках жизни веб приложения
 //builder.Services.AddTransient<IApplicationBuilder, ApplicationBuilder>();-сервис создаётся на каждое обращение к сервису (несколько методов сервиса- несколько инстансов)
@@ -66,6 +69,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

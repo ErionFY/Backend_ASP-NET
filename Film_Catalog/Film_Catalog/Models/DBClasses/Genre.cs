@@ -6,7 +6,7 @@ namespace Film_Catalog.Models.DBClasses
     {
         [Key]
         public Guid Genre_Id { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         //###############
         //#Relationships#

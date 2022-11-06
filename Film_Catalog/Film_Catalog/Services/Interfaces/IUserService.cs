@@ -6,5 +6,7 @@ namespace Film_Catalog.Services.Interfaces
     {
         bool IsAllowedJwtToken(string JwtUserToken);
         ProfileModel ProfileOfUser(string UserId);
+        bool IsEmailFree(ProfileModel model);
+        Task ChangeUserInfo(ProfileModel model);
     }
 }

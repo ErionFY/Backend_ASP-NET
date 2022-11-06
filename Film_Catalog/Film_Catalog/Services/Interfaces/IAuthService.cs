@@ -8,7 +8,7 @@ namespace Film_Catalog.Services.Interfaces
         bool CheckUique(UserRegisterModel model);
         Task AddUser(UserRegisterModel model);
         ClaimsIdentity GetIdentity(string username, string password);
-       
-        void LogOutJWT(string JwtUserToken);
+        Task LogOutJWT(string JwtUserToken);
+        bool IsAllowedJwtToken(string JwtUserToken);
     }
 }

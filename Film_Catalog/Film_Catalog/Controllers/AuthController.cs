@@ -88,9 +88,14 @@ namespace Film_Catalog.Controllers
 
         [HttpPost("logout")]
         [Authorize]
-        public void PostLogout()
+        public ActionResult PostLogout()
         {
+            if (!_AuthService.IsAllowedJwtToken(Request.Headers.Authorization))
+            {
+                return StatusCode(401, " Invalid Token");
+            }
             _AuthService.LogOutJWT(Request.Headers.Authorization);
+            return Ok();
         }
 
     }
