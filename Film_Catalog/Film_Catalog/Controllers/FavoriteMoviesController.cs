@@ -22,12 +22,12 @@ namespace Film_Catalog.Controllers
         public ActionResult<MoviesListModel> GetFavorites() {
             if (!_FavoriteMoviesService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498);
             }
             try
             {
-                _FavoriteMoviesService.GetFavoriteFilms(Request.Headers.Authorization);
-                return Ok();
+               return _FavoriteMoviesService.GetFavoriteFilms(User.Identity.Name);
+                
             }
             catch(Exception e)
             {
@@ -37,11 +37,39 @@ namespace Film_Catalog.Controllers
 
         [HttpPost("favorites/{id}/add")]
         [Authorize]
-        public void AddFavorites(Guid id) { }
+        public async Task<IActionResult> AddFavorites(Guid id) {
+            if (!_FavoriteMoviesService.IsAllowedJwtToken(Request.Headers.Authorization))
+            {
+                return StatusCode(498);
+            }
+            try
+            {
+                await _FavoriteMoviesService.AddFavoriteFilm(id, User.Identity.Name);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
 
         [HttpDelete("favorites/{id}/delete")]
         [Authorize]
-        public void DeleteFavorites(Guid id) { }
+        public async Task<IActionResult> DeleteFavorites(Guid id) {
+            if (!_FavoriteMoviesService.IsAllowedJwtToken(Request.Headers.Authorization))
+            {
+                return StatusCode(498);
+            }
+            try
+            {
+                await _FavoriteMoviesService.DeleteFavoriteFilm(id, User.Identity.Name);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
         
     }
 }

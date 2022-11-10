@@ -19,21 +19,21 @@ namespace Film_Catalog.Controllers
 
         [HttpPost("add")]
         [Authorize]
-        public ActionResult AddReview(ReviewModifyModel model, Guid movieId)
+        public async Task<IActionResult> AddReview(ReviewModifyModel model, Guid movieId)
         {
             if (!_ReviewService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498);
             }
 
             if (!ModelState.IsValid)
             {
-                return StatusCode(401, "Model is incorrect");
+                return StatusCode(400, "Model is incorrect");
             }
             try
             {
-                _ReviewService.SaveReview(model, User.Identity.Name, movieId);
-                return Ok();
+                await _ReviewService.SaveReview(model, User.Identity.Name, movieId);
+                return StatusCode(201);
             }
             catch (Exception ex)
             {
@@ -43,19 +43,19 @@ namespace Film_Catalog.Controllers
 
             [HttpPut("{id}/edit")]
             [Authorize]
-            public ActionResult EditReview(Guid movieId, Guid id, ReviewModifyModel model) {
+            public async Task<IActionResult> EditReview(Guid movieId, Guid id, ReviewModifyModel model) {
             if (!_ReviewService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498, "Invalid Token");
             }
 
             if (!ModelState.IsValid)
             {
-                return StatusCode(401, "Model is incorrect");
+                return StatusCode(400, "Model is incorrect");
             }
             try
             {
-                _ReviewService.ChangeReview(model, id, movieId);
+                await _ReviewService.ChangeReview(model, id, movieId);
                 return Ok();
             }
             catch (Exception ex)
@@ -66,19 +66,15 @@ namespace Film_Catalog.Controllers
 
             [HttpDelete("{id}/delete")]
             [Authorize]
-            public ActionResult DeleteReview(Guid movieId, Guid id) {
+            public async Task<IActionResult> DeleteReview(Guid movieId, Guid id) {
             if (!_ReviewService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498);
             }
 
-            if (!ModelState.IsValid)
-            {
-                return StatusCode(401, "Model is incorrect");
-            }
             try
             {
-                _ReviewService.RemoveReview( id, movieId);
+                await _ReviewService.RemoveReview( id, movieId);
                 return Ok();
             }
             catch (Exception ex)

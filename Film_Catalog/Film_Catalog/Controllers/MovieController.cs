@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Film_Catalog.Models.DTO;
+using Film_Catalog.Services.Interfaces;
 
 namespace Film_Catalog.Controllers
 {
@@ -8,16 +9,43 @@ namespace Film_Catalog.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        [HttpGet("{page}")]
-        public MoviesPagedListModel GetPage(Int32 page=1)
+        private IMovieService _MovieService;
+
+        public MovieController(IMovieService movieService)
         {
-            return null;
+            _MovieService = movieService;
+        }
+
+        [HttpGet("{page}")]
+        public ActionResult<MoviesPagedListModel> GetPage(Int32 page=1)
+        {
+            if (page < 1)
+            {
+                return StatusCode(404);
+            }
+            try
+            {
+                return _MovieService.GetListModel(page);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+
+            
         }
 
         [HttpGet("details/{id}")]
-        public MovieDetailsModel GetDetails(Guid id)
+        public ActionResult<MovieDetailsModel> GetDetails(Guid id)
         {
-            return null;
+            try
+            {
+               return _MovieService.GetMovieDetails(id);
+            }
+            catch()
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

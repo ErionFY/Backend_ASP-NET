@@ -57,7 +57,6 @@ namespace Film_Catalog.Services
                 return null;
             }
 
-            // Claims описывают набор базовых данных для авторизованного пользователя
             var claims = new List<Claim>
         {
             new Claim(ClaimsIdentity.DefaultNameClaimType, user.User_Id.ToString()),
@@ -65,7 +64,6 @@ namespace Film_Catalog.Services
 
         };
 
-            //Claims identity и будет являться полезной нагрузкой в JWT токене, которая будет проверяться стандартным атрибутом Authorize
             var claimsIdentity =
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             return claimsIdentity;

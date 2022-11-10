@@ -36,7 +36,7 @@ namespace Film_Catalog.Services
             return profileModel;
         }
         
-        public bool IsEmailFree(ProfileModel model) //true -free
+        public bool IsEmailFree(ProfileModel model) 
         {
             var User = _context.Users.Find(model.id);
             if (User.Email == model.email) { return true; }

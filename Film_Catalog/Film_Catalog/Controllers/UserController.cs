@@ -24,7 +24,7 @@ namespace Film_Catalog.Controllers
         [Authorize]
         public ActionResult<ProfileModel> GetProfile() {
             if(!_UserService.IsAllowedJwtToken(Request.Headers.Authorization)){
-                return StatusCode(401,"Invalid Token");
+                return StatusCode(498);
             }
             return _UserService.ProfileOfUser(User.Identity.Name);
             
@@ -32,20 +32,20 @@ namespace Film_Catalog.Controllers
 
         [HttpPut]
         [Authorize]
-        public ActionResult PutProfile(ProfileModel model) {
+        public async Task<IActionResult> PutProfile(ProfileModel model) {
             if (!_UserService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498);
             }
             if (!ModelState.IsValid)
             {
-                return StatusCode(401, "Model is incorrect");
+                return StatusCode(400, "Model is incorrect");
             }
             if(!_UserService.IsEmailFree(model))
             {
                 return StatusCode(400, "This Email is already taken");
             }
-            _UserService.ChangeUserInfo(model);
+           await _UserService.ChangeUserInfo(model);
             return Ok();
         }
     }

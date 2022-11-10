@@ -40,13 +40,13 @@ namespace Film_Catalog.Controllers
                 try
                {
                    await _AuthService.AddUser(model);
-                   return Ok();
+                   return StatusCode(201);
 
                }
                catch(Exception e)
                {
                    
-                   return StatusCode(500, "Errors during adding new User");
+                   return StatusCode(500);
                }
       
         }
@@ -88,15 +88,15 @@ namespace Film_Catalog.Controllers
 
         [HttpPost("logout")]
         [Authorize]
-        public ActionResult PostLogout()
+        public async Task<IActionResult>  PostLogout()
         {
             if (!_AuthService.IsAllowedJwtToken(Request.Headers.Authorization))
             {
-                return StatusCode(401, "Invalid Token");
+                return StatusCode(498);
             }
             try 
             { 
-            _AuthService.LogOutJWT(Request.Headers.Authorization);
+           await _AuthService.LogOutJWT(Request.Headers.Authorization);
             return Ok();
              }
             catch(Exception e)

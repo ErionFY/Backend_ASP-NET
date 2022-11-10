@@ -48,20 +48,13 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<IFavoriteMoviesService, FavoriteMoviesService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 
 
-
-//builder.Services.AddScoped<IApplicationBuilder, ApplicationBuilder>();-для каждого запроса создаётся свой объект сервиса
-//builder.Services.AddSingleton<IApplicationBuilder, ApplicationBuilder>();-создаёт только один объект сервиса и живёт в рамках жизни веб приложения
-//builder.Services.AddTransient<IApplicationBuilder, ApplicationBuilder>();-сервис создаётся на каждое обращение к сервису (несколько методов сервиса- несколько инстансов)
 
 var app = builder.Build();
-/*
-using var serviceScope=app.Services.CreateScope();
-var context=serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-context?.Database.Migrate();
-*/
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

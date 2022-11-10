@@ -21,9 +21,6 @@ namespace Film_Catalog
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-        // modelBuilder.Entity<Review>().HasOne(w => w.Author).WithMany(e => e.Reviews);
-         //modelBuilder.Entity<Review>().HasOne(w => w.Movie).WithMany(e => e.Reviews);
-         //вmodelBuilder.Entity<Review>().HasKey(w => new { w.Author, w.Movie });
         }
     }
 }

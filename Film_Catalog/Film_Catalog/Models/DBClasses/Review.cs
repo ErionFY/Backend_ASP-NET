@@ -14,5 +14,5 @@ namespace Film_Catalog.Models.DBClasses
         public DateTime CreateDateTime { get; set; }
         public Movie Movie { get; set; }    
         public User Author { get; set; }
-    }
+    } 
 }

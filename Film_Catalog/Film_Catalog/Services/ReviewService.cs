@@ -21,8 +21,8 @@ namespace Film_Catalog.Services
         public async Task SaveReview(ReviewModifyModel model,string UserId,Guid MovieId)
         {
            
-            Movie movie = _context.Movies.Find(MovieId);
-            User user = _context.Users.Find(new Guid(UserId));
+            var movie = _context.Movies.Find(MovieId);
+            var user = _context.Users.Find(new Guid(UserId));
             
             Review review= new Review
             {   
@@ -41,7 +41,7 @@ namespace Film_Catalog.Services
 
         public async Task ChangeReview(ReviewModifyModel model, Guid ReviewId, Guid MovieId)
         {
-            Review review =_context.Reviews.Find(ReviewId);
+            var review =_context.Reviews.Find(ReviewId);
             if (review != null)
             {
                 review.ReviewText = model.reviewText;
@@ -54,7 +54,7 @@ namespace Film_Catalog.Services
 
         public async Task RemoveReview(Guid ReviewId, Guid MovieId)
         {
-            Review review= _context.Reviews.Find(ReviewId);
+            var review= _context.Reviews.Find(ReviewId);
             _context.Reviews.Remove(review);
             await _context.SaveChangesAsync();
         }
